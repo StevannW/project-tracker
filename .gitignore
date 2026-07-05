@@ -1,0 +1,39 @@
+# ======================
+# Environment
+# ======================
+.env
+.env.*
+!.env.example
+
+# ======================
+# Python
+# ======================
+backend/.venv/
+__pycache__/
+*.pyc
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+
+# ======================
+# Node
+# ======================
+frontend/node_modules/
+frontend/dist/
+
+# ======================
+# IDE
+# ======================
+.vscode/
+.idea/
+
+# ======================
+# Logs
+# ======================
+*.log
+
+# ======================
+# OS
+# ======================
+Thumbs.db
+.DS_Store
