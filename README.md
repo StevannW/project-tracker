@@ -1,4 +1,4 @@
-# 📝 Project Tracker Website
+# Project Tracker Website
 ## By:  Stevanus Wahyu Julianto
 <br>
 
