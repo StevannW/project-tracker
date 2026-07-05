@@ -95,7 +95,10 @@ onMounted(() => {
 })
 
 function formatDate(date){
-    return new Date(date).toLocaleString()
+    const d = new Date(date);
+    const datePart = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).format(d);
+    const timePart = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' }).format(d).replace(':', '.');
+    return `${datePart} ${timePart}`;
 }
 
 function truncateText(text, length) {

@@ -94,7 +94,7 @@ const formatDateTime = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
     const datePart = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
-    const timePart = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Jakarta' }).format(date);
+    const timePart = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' }).format(date).replace(':', '.');
     return `${datePart}, ${timePart}`;
 };
 </script>

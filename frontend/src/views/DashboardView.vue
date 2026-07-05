@@ -202,21 +202,15 @@ const updateDateTime = () => {
     const optionsDate = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' };
     const dateStr = new Intl.DateTimeFormat('en-GB', optionsDate).format(now);
     
-    const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'Asia/Jakarta' };
-    const timeParts = new Intl.DateTimeFormat('en-US', optionsTime).formatToParts(now);
+    const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' };
+    const timeStr = new Intl.DateTimeFormat('en-GB', optionsTime).format(now).replace(':', '.');
     
-    const hour = timeParts.find(p => p.type === 'hour').value;
-    const minute = timeParts.find(p => p.type === 'minute').value;
-    const ampm = timeParts.find(p => p.type === 'dayPeriod').value.toLowerCase();
-    
-    const formattedAmpm = ampm === 'am' ? 'a.m' : 'p.m';
-
-    currentDateTime.value = `${dateStr} ${hour}.${minute} ${formattedAmpm}`;
+    currentDateTime.value = `${dateStr} ${timeStr}`;
 
     const optionsDateShort = { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Jakarta' };
     const dateStrShort = new Intl.DateTimeFormat('en-GB', optionsDateShort).format(now);
     shortDateOnly.value = dateStrShort;
-    shortTimeOnly.value = `${hour}.${minute} ${formattedAmpm}`;
+    shortTimeOnly.value = timeStr;
 };
 
 let timer
