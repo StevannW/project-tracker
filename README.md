@@ -170,3 +170,7 @@ Jalankan Development Server Vite:
 npm run dev
 ```
 Aplikasi antarmuka/frontend sekarang berjalan di **http://localhost:5173**.
+
+
+## Interface Aplikasi
+![alt text](image.png)
