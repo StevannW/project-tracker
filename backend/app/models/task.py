@@ -8,10 +8,17 @@ from sqlalchemy.sql import func
 from app.core.enums import TaskStatus
 from app.db.database import Base
 from sqlalchemy import Boolean
+from sqlalchemy.orm import relationship
 
 
 class Task(Base):
     __tablename__ = "tasks"
+
+    notifications = relationship(
+        "Notification",
+        back_populates="task",
+        cascade="all, delete-orphan"
+    )
 
     id = Column(Integer, primary_key=True, index=True)
 

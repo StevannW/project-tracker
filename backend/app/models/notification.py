@@ -7,11 +7,14 @@ from sqlalchemy import String
 from sqlalchemy.sql import func
 
 from app.db.database import Base
+from sqlalchemy.orm import relationship
 
 
 class Notification(Base):
 
     __tablename__ = "notifications"
+
+    task = relationship("Task", back_populates="notifications")
 
     id = Column(
         Integer,
