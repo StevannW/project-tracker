@@ -18,7 +18,7 @@ def check_reminders():
         tasks = (
             db.query(Task)
             .filter(
-                Task.status == "Todo",
+                Task.status.in_(["Todo", "In Progress"]),
                 Task.remind_at.is_not(None),
                 Task.reminder_sent == False,
                 Task.remind_at <= now,

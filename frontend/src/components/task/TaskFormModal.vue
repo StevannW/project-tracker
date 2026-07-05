@@ -76,9 +76,10 @@
                                 class="form-check-input mt-0 me-2"
                                 type="checkbox"
                                 v-model="form.remind_enabled"
+                                :disabled="form.status === 'Done'"
                                 style="cursor: pointer; width: 2.5em; height: 1.25em;"
                             >
-                            <label class="form-check-label fw-medium" for="remindCheck" style="cursor: pointer;">
+                            <label class="form-check-label fw-medium" for="remindCheck" style="cursor: pointer;" :class="{'text-muted': form.status === 'Done'}">
                                 Set a Reminder
                             </label>
                         </div>
@@ -217,6 +218,16 @@ watch(
 
     }
 
+);
+
+watch(
+    () => form.status,
+    (newStatus) => {
+        if (newStatus === 'Done') {
+            form.remind_enabled = false;
+            form.remind_at = null;
+        }
+    }
 );
 
 function closeModal() {
