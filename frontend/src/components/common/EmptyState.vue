@@ -10,13 +10,13 @@ class="bi bi-inbox display-1 text-secondary">
 
 <h4 class="mt-3">
 
-Belum ada Task
+No tasks yet
 
 </h4>
 
 <p class="text-muted">
 
-Silakan tambahkan task pertama.
+Please add your first task.
 
 </p>
 
