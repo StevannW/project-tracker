@@ -1,20 +1,21 @@
 # 📝 Project Tracker Website
-
+## By:  Stevanus Wahyu Julianto
+<br>
 
 ## 🐋 Opsi 1: Setup Menggunakan Docker
 ## Persiapan
 Jika ingin melakukan setup menggunakan docker, install terlebih dahulu aplikasi docker desktop:
 - https://www.docker.com/products/docker-desktop/
 
-Jika sudah memiliki aplikasi docker, berikut langkah langkahnya:
+Jika sudah memiliki aplikasi docker, jalankan aplikasi docker desktop dan ikuti langkah-langkah berikut:
 
 ### 1. Clone Repository
-Unduh kode sumber proyek ini ke device.
-
-Buka terminal di device, lalu ketik command:
+Unduh kode sumber project ini. Buka terminal di device, lalu ketik command:
 ```bash
 git clone https://github.com/StevannW/project-tracker.git
 ```
+Setelah selesai mengunduh, masuk ke directory project dengan command:
+
 ```bash
 cd project-tracker
 ```
@@ -83,20 +84,43 @@ cd project-tracker
 ```
 
 ### 2. Setup Database PostgreSQL
-Pastikan layanan database PostgreSQL sudah berjalan di perangkat Anda. Buka pgAdmin (atau CLI `psql`), lalu buat sebuah database baru dengan nama `task_tracker`:
-```sql
-CREATE DATABASE task_tracker;
-```
+Pastikan layanan database PostgreSQL sudah berjalan di perangkat Anda. Anda dapat membuat database baru dengan nama `task_tracker` menggunakan salah satu dari dua cara berikut:
+
+**Cara A: Menggunakan CLI (psql)**
+Buka terminal atau Command Prompt Anda, lalu ikuti langkah berikut:
+1. Masuk ke PostgreSQL menggunakan *user* default (`postgres`):
+   ```bash
+   psql -U postgres
+   ```
+2. Anda akan dimintai *password*. Masukkan *password* yang Anda buat saat pertama kali menginstal PostgreSQL.
+3. Setelah berhasil masuk (ditandai dengan baris `postgres=#`), buat databasenya:
+   ```sql
+   CREATE DATABASE task_tracker;
+   ```
+4. Keluar dari shell PostgreSQL:
+   ```sql
+   \q
+   ```
+
+**Cara B: Menggunakan pgAdmin 4 (GUI)**
+1. Buka aplikasi **pgAdmin 4** di komputer Anda dan login menggunakan *password* Anda.
+2. Di panel sebelah kiri, perluas (*expand*) menu **Servers** > **PostgreSQL 16** (atau versi yang Anda gunakan).
+3. Klik kanan pada menu **Databases** > Pilih **Create** > **Database...**
+4. Pada jendela yang muncul, isi kolom **Database** dengan nama `task_tracker`.
+5. Klik **Save**.
 
 ### 3. Setup Backend (Python / FastAPI)
 Buka terminal dan masuk ke folder `backend`:
 ```bash
 cd backend
 ```
-Buat lingkungan virtual (*Virtual Environment*) agar instalasi library terisolasi:
+Buat lingkungan virtual (*Virtual Environment*) agar instalasi library terisolasi, jalankan command ini:
 ```bash
 python -m venv .venv
+```
+Setelah membuat virtual environment, aktifkan virtual environment tersebut dengan command berikut:
 
+```bash
 # Aktivasi di Windows:
 .venv\Scripts\activate
 
@@ -111,6 +135,7 @@ Salin file konfigurasi:
 ```bash
 # Windows:
 copy .env.example .env
+
 # macOS/Linux:
 cp .env.example .env
 ```
@@ -120,7 +145,7 @@ Jalankan Server Backend:
 ```bash
 uvicorn app.main:app --reload
 ```
-API sekarang berjalan di **http://localhost:8000**. Skema database/tabel akan secara otomatis dibuat saat server pertama kali menyala!
+API sekarang berjalan di **http://localhost:8000**.
 
 ### 4. Setup Frontend (Node / Vue)
 Buka tab terminal baru (biarkan terminal backend tetap berjalan) dan masuk ke folder `frontend`:
@@ -135,13 +160,13 @@ Salin file konfigurasi:
 ```bash
 # Windows:
 copy .env.example .env
+
 # macOS/Linux:
 cp .env.example .env
 ```
-> *(File frontend/.env secara default sudah mengarah ke backend lokal Anda).*
 
 Jalankan Development Server Vite:
 ```bash
 npm run dev
 ```
-Aplikasi antarmuka/frontend Anda sekarang berjalan secara *live* di **http://localhost:5173**.
+Aplikasi antarmuka/frontend sekarang berjalan di **http://localhost:5173**.
