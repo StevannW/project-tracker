@@ -139,7 +139,7 @@ copy .env.example .env
 # macOS/Linux:
 cp .env.example .env
 ```
-> ⚠️ **SANGAT PENTING**: Buka file `backend/.env` yang baru dibuat. Anda **wajib** mengubah nilai `DATABASE_USER` dan `DATABASE_PASSWORD` dengan kredensial PostgreSQL asli komputer Anda.
+> **NOTE**: Buka file `backend/.env` yang baru dibuat. Anda **wajib** mengubah nilai `DATABASE_USER` dan `DATABASE_PASSWORD` dengan kredensial PostgreSQL asli komputer Anda.
 
 Jalankan Server Backend:
 ```bash
