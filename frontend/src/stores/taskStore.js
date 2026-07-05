@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import taskService from "@/services/taskService";
 import { successPopup } from "@/utils/toast";
+import { useNotificationStore } from "@/stores/notificationStore";
 
 export const useTaskStore = defineStore("task", {
 
@@ -115,6 +116,11 @@ export const useTaskStore = defineStore("task", {
                         task => task.id !== id
                     );
                 successPopup("Task Deleted", "The task has been deleted.");
+                
+                // Refresh notifications to instantly update the badge 
+                // in case the deleted task had unread notifications
+                const notifStore = useNotificationStore();
+                notifStore.fetchNotifications();
             } catch (error) {
                 console.error(error);
                 this.error = "Failed to delete task.";
