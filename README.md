@@ -41,7 +41,7 @@ docker compose up --build
 Setelah log di terminal menunjukkan bahwa semua *container* sudah berjalan (Started/Running), buka browser dan kunjungi:
 
 - 🌐 **Aplikasi Utama (Frontend)**: [http://localhost](http://localhost)
-- 📖 **Dokumentasi API (Backend/Swagger)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+
 
 ### Menghentikan Aplikasi
 Tekan `Ctrl+C` pada terminal yang sedang berjalan. Jika ingin mematikan *container* yang berjalan di latar belakang secara bersih, gunakan:
